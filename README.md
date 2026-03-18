@@ -99,3 +99,6 @@ jobs:
 3. **Usa perfiles Maven** si necesitas configuraciones distintas para CI (p. ej., base de datos H2 para tests).
 4. **Verifica la versión de Java**: el runner de GitHub Actions debe usar la misma que la configurada en el proyecto.
 5. **Habilita la caché de Maven**: reduce significativamente el tiempo de build en cada ejecución.
+
+---
+Fuentes: [ChatGPT](https://chat.openai.com) + [Claude](https://claude.ai)
