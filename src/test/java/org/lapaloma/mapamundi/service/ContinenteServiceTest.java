@@ -21,8 +21,7 @@ class ContinenteServiceTest {
     @BeforeEach
     void setUp() {
         fakeDAO = new FakeContinenteDAO();
-        continenteService = new ContinenteService();
-        continenteService.continenteDAO = fakeDAO;
+        continenteService = new ContinenteService(fakeDAO);
     }
 
     // =========================

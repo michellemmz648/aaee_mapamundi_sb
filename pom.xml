@@ -26,6 +26,12 @@
 	        <artifactId>spring-boot-starter-web</artifactId>
 	    </dependency>
 	
+	    <!-- JDBC starter: activa DataSource y HikariCP -->
+	    <dependency>
+	      <groupId>org.springframework.boot</groupId>
+	      <artifactId>spring-boot-starter-jdbc</artifactId>
+	    </dependency>	
+
 	    <!-- Starter test: incluye JUnit 5, Mockito, AssertJ, etc --> 
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>

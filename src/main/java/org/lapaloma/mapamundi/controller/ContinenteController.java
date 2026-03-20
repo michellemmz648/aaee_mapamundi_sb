@@ -20,8 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/continentes")
 public class ContinenteController {
 
-    private final ContinenteService continenteService = new ContinenteService();
+    private final ContinenteService continenteService;
 
+    // Spring inyecta automáticamente el service con su DAO
+    public ContinenteController(ContinenteService continenteService) {
+        this.continenteService = continenteService;
+    }
+    
     // GET /api/continentes - listar todos los continentes
     @GetMapping
     public List<Continente> getAll() {

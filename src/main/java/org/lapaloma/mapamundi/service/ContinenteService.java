@@ -6,14 +6,21 @@ package org.lapaloma.mapamundi.service;
 import java.util.List;
 
 import org.lapaloma.mapamundi.dao.IContinenteDAO;
-import org.lapaloma.mapamundi.dao.impl.ContinenteDaoJDBC;
 import org.lapaloma.mapamundi.excepcion.ContinenteNoEncontradoException;
 import org.lapaloma.mapamundi.vo.Continente;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ContinenteService {
 
-    IContinenteDAO continenteDAO = new ContinenteDaoJDBC();
+    private final IContinenteDAO continenteDAO;
 
+    // Spring inyecta el DAO automáticamente
+    public ContinenteService(IContinenteDAO continenteDAO) {
+        this.continenteDAO = continenteDAO;
+    }
+    
+    
     public Continente obtenerContinentePorClave(String codigo) {
     	
     	
@@ -23,9 +30,6 @@ public class ContinenteService {
 
         Continente continente = continenteDAO.obtenerContinentePorClave(codigo);
 
-        // Esta línea simula un error de negocio, ignorando lo que devuelve el DAO
-        continente = null;
-        
         
         if (continente == null) {
             throw new ContinenteNoEncontradoException(
@@ -40,6 +44,9 @@ public class ContinenteService {
 
         List<Continente> lista = continenteDAO.obtenerListaContinentes();
 
+        // Esto provoca error
+        //lista = null;
+        
         if (lista == null || lista.isEmpty()) {
             throw new RuntimeException("No hay continentes disponibles");
         }
@@ -55,6 +62,9 @@ public class ContinenteService {
 
         List<Continente> lista = continenteDAO.obtenerContinentePorNombre(nombre);
 
+    	// Al comentar este código desaparece el error
+        lista =null;
+        
         if (lista == null || lista.isEmpty()) {
             throw new ContinenteNoEncontradoException(
                     "No existen continentes con nombre: " + nombre
