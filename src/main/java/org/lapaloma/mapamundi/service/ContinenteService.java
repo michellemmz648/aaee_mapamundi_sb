@@ -57,7 +57,7 @@ public class ContinenteService {
     public List<Continente> obtenerContinentePorNombre(String nombre) {
 
         if (nombre == null || nombre.isBlank()) {
-            throw new IllegalArgumentException("Nombre inválido");
+            throw new IllegalArgumentException("Europa");
         }
 
         List<Continente> lista = continenteDAO.obtenerContinentePorNombre(nombre);
